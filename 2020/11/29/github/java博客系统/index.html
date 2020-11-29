@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>听说你要搭建个人博客？Guide哥调研了100来个 Java 开源博客系统，发现这 5 个最好用！ | Hexo</title>
+  <meta name="keywords" content=" 开源项目 , SpringBoot ">
+  <meta name="description" content="听说你要搭建个人博客？Guide哥调研了100来个 Java 开源博客系统，发现这 5 个最好用！ | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="最近想倒腾一下博客，看了很多现成的比较成熟的开源博客系统，自己也简单从下面几个维度总结对比了一下：  star数量 技术选型 社区生态  当然啦！好东西不能独享。下面简单分享一下我所做的笔记。 欢迎小伙伴们评论区补充完善。ღ( ´･ᴗ･&#96; )比心 halo Github地址 ：https:&#x2F;&#x2F;github.com&#x2F;halo-dev&#x2F;halo Star : 16.2k 简介 ：✍ 一个优秀的开源博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="听说你要搭建个人博客？Guide哥调研了100来个 Java 开源博客系统，发现这 5 个最好用！">
+<meta property="og:url" content="http://example.com/2020/11/29/github/java%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近想倒腾一下博客，看了很多现成的比较成熟的开源博客系统，自己也简单从下面几个维度总结对比了一下：  star数量 技术选型 社区生态  当然啦！好东西不能独享。下面简单分享一下我所做的笔记。 欢迎小伙伴们评论区补充完善。ღ( ´･ᴗ･&#96; )比心 halo Github地址 ：https:&#x2F;&#x2F;github.com&#x2F;halo-dev&#x2F;halo Star : 16.2k 简介 ：✍ 一个优秀的开源博客">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/Halo%E9%A6%96%E9%A1%B5-halo.run.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%E4%B8%BB%E9%A2%98%E4%BB%93%E5%BA%93-%20Halo-halo.run.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%20halo-%E5%AF%92%E5%B1%B1%E5%BF%97-baozi.fun.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/Artificial-Intelligence-Algorithm-Scientist-www.piqiandong.com.png">
+<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-8/D%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-88250.b3log.org.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%20%E8%98%91%E8%8F%87%E5%8D%9A%E5%AE%A2-%E4%B8%93%E6%B3%A8%E4%BA%8E%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0-demoweb.moguit.cn.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%E8%98%91%E8%8F%87%E4%BA%91%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-demoadmin.moguit.cn.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/plumemo-qfdxz.top.png">
+<meta property="article:published_time" content="2020-11-29T15:12:35.868Z">
+<meta property="article:modified_time" content="2020-11-29T15:13:23.659Z">
+<meta property="article:author" content="Guide哥">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="SpringBoot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/Halo%E9%A6%96%E9%A1%B5-halo.run.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Guide哥</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/Snailclimb" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/javaguide" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="juejin" href="https://juejin.cn/user/166781497383294" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/qq_34337272?spm=1001.2014.3001.5113" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:koushuangbwcx@163.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="All">All<small>(3)</small></div></li>
+    
+        
+            
+            <li><div data-rel="开源项目推荐">开源项目推荐<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="IDEA">IDEA<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">About</a><a style="width: 50%"  class="friends">Friends</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="3">
+<input type="hidden" id="yelog_site_word_count" value="2k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开源项目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IDEA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IDEA插件</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SpringBoot</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="All 开源项目推荐 "
+           href="/2020/11/29/github/java%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/"
+           data-tag="开源项目,SpringBoot"
+           data-author="" >
+            <span class="post-title" title="听说你要搭建个人博客？Guide哥调研了100来个 Java 开源博客系统，发现这 5 个最好用！">听说你要搭建个人博客？Guide哥调研了100来个 Java 开源博客系统，发现这 5 个最好用！</span>
+            <span class="post-date" title="2020-11-29 23:12:35">2020/11/29</span>
+        </a>
+        
+        <a id="top" class="All IDEA "
+           href="/2020/11/29/idea/jclasslib/"
+           data-tag="IDEA,IDEA插件"
+           data-author="" >
+            <span class="post-title" title="jclasslib：一款快速查看Java字节码的神器!力荐！">jclasslib：一款快速查看Java字节码的神器!力荐！</span>
+            <span class="post-date" title="2020-11-29 22:27:28">2020/11/29</span>
+        </a>
+        
+        <a  class="All "
+           href="/2020/11/29/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2020-11-29 21:57:37">2020/11/29</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-github/java博客系统" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">听说你要搭建个人博客？Guide哥调研了100来个 Java 开源博客系统，发现这 5 个最好用！</h1>
+    
+    <div class="article-meta">
+        
+        <span class="top"><a>置顶</a></span>
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="开源项目推荐">开源项目推荐</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">开源项目</a>
+            
+            <a class="color1">SpringBoot</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-11-29 23:13:23'>2020-11-29 23:12</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:961</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#halo"><span class="toc-text">halo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OneBlog"><span class="toc-text">OneBlog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solo"><span class="toc-text">solo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%98%91%E8%8F%87%E5%8D%9A%E5%AE%A2"><span class="toc-text">蘑菇博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plumemo"><span class="toc-text">plumemo</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近想倒腾一下博客，看了很多现成的比较成熟的开源博客系统，自己也简单从下面几个维度总结对比了一下：</p>
+<ol>
+<li>star数量</li>
+<li>技术选型</li>
+<li>社区生态</li>
+</ol>
+<p>当然啦！好东西不能独享。下面简单分享一下我所做的笔记。</p>
+<p><em>欢迎小伙伴们评论区补充完善。ღ( ´･ᴗ･` )比心</em></p>
+<h2 id="halo"><a href="#halo" class="headerlink" title="halo"></a>halo</h2><ul>
+<li>Github地址 ：<a target="_blank" rel="noopener" href="https://github.com/halo-dev/halo">https://github.com/halo-dev/halo</a></li>
+<li>Star : 16.2k</li>
+<li>简介 ：✍ 一个优秀的开源博客发布应用。</li>
+<li>技术 ：Spring Boot+JPA+Hutool</li>
+<li>推荐等级 ：⭐⭐⭐⭐⭐</li>
+<li>评价 ：这款博客生态非常好（可选主题也非常多），使用的人也非常多。并且！！<strong>还提供了小程序端！</strong> 另外，搭建步骤也非常简单，基本是傻瓜式的。</li>
+</ul>
+<p><strong>Halo 首页：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/Halo%E9%A6%96%E9%A1%B5-halo.run.png" alt="Halo首页-halo.run"></p>
+<p><strong>Halo 主题仓库 ：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%E4%B8%BB%E9%A2%98%E4%BB%93%E5%BA%93-%20Halo-halo.run.png" alt="主题仓库- Halo-halo.run"></p>
+<p><strong>Halo 博客效果：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%20halo-%E5%AF%92%E5%B1%B1%E5%BF%97-baozi.fun.png" alt=" halo-寒山志-baozi.fun"></p>
+<h2 id="OneBlog"><a href="#OneBlog" class="headerlink" title="OneBlog"></a>OneBlog</h2><ul>
+<li>Github地址：<a target="_blank" rel="noopener" href="https://gitee.com/yadong.zhang/DBlog">https://gitee.com/yadong.zhang/DBlog</a></li>
+<li>Star : 2.3k</li>
+<li>简介 ：一个简洁美观、功能强大并且自适应的Java博客。使用Spring Boot开发，前端使用Bootstrap。支持移动端自适应，配有完备的前台和后台管理功能。</li>
+<li>技术 : Springboot + Shiro + MySQL + Mybatis + Redis</li>
+<li>推荐等级 ：⭐⭐⭐⭐</li>
+<li>评价 ：我个人比较喜欢的一款博客样式类型（<em>不过，需要花更多时间自定义和完善。没精力折腾的，慎入！</em>），自带评论系统、SEO等功能。比较适合做知识沉淀类网站。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/Artificial-Intelligence-Algorithm-Scientist-www.piqiandong.com.png" alt="Artificial-Intelligence-Algorithm-Scientist-www.piqiandong.com"></p>
+<h2 id="solo"><a href="#solo" class="headerlink" title="solo"></a>solo</h2><ul>
+<li>Github地址：<a target="_blank" rel="noopener" href="https://github.com/88250/solo">https://github.com/88250/solo</a></li>
+<li>Star : 0.8k</li>
+<li>简介 ：<a target="_blank" rel="noopener" href="https://solo.b3log.org/">Solo</a> 是一款小而美的开源博客系统，专为程序员设计。🎸 <a target="_blank" rel="noopener" href="https://solo.b3log.org/">Solo</a>是B3log 分布式社区的 Java 博客端节点系统，欢迎加入下一代社区网络。</li>
+<li>技术 ：Docker+H2+Nginx+<a target="_blank" rel="noopener" href="https://github.com/88250/latke">Latke</a> （作者自研的以 JSON 为主的 Java Web 框架）</li>
+<li>推荐等级：⭐⭐⭐⭐</li>
+<li>评价 ：和 halo 一样，都是比较成熟的博客系统了，并且生态特别好。Solo 第一个版本是在 2020 年发布，到现在为止，Solo项目的作者已经维护这个项目快10年了。为你们点赞！感谢你们的付出！另外，需要格外说明一下：<strong>项目框架不是选用的主流的 Spring Boot 而是作者自己写的一个叫做 <a target="_blank" rel="noopener" href="https://github.com/88250/latke">Latke</a> 的web 框架。</strong></li>
+</ul>
+<p><strong>solo 博客效果：</strong></p>
+<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-8/D%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-88250.b3log.org.png" alt="D的个人博客"></p>
+<h2 id="蘑菇博客"><a href="#蘑菇博客" class="headerlink" title="蘑菇博客"></a>蘑菇博客</h2><ul>
+<li>Github地址：<a target="_blank" rel="noopener" href="https://gitee.com/moxi159753/mogu_blog_v2">https://gitee.com/moxi159753/mogu_blog_v2</a></li>
+<li>Star: 1.2k</li>
+<li>简介：蘑菇博客(MoguBlog)，一个基于微服务架构的前后端分离博客系统。</li>
+<li>技术 ：Spring Boot + Spring Cloud Alibaba + <a target="_blank" rel="noopener" href="https://baomidou.com/">MyBatis-Plus</a> + ElasticSearch</li>
+<li>推荐等级：⭐⭐⭐⭐</li>
+<li>评价：第一次看到基于微服务架构的个人博客系统。我觉得作者可能是为了检验自己对于微服务相关框架的掌握，正如作者说的那样：“现在挺多是SSM或者SSH的博客管理系统，想用spring boot + spring cloud + vue 的微服务架构进行尝试项目的构建，里面很多功能可能只是为了满足自己的学习需求而引入的，因此本博客也是一个非常好的SpringBoot、SpringCloud以及Vue技术的入门学习项目。”</li>
+</ul>
+<p><strong>蘑菇博客前台效果：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%20%E8%98%91%E8%8F%87%E5%8D%9A%E5%AE%A2-%E4%B8%93%E6%B3%A8%E4%BA%8E%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0-demoweb.moguit.cn.png" alt=" 蘑菇博客-专注于技术分享的博客平台-demoweb.moguit.cn"></p>
+<p><strong>蘑菇博客后台效果：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/%E8%98%91%E8%8F%87%E4%BA%91%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-demoadmin.moguit.cn.png" alt="蘑菇云后台管理系统-demoadmin.moguit.cn"></p>
+<h2 id="plumemo"><a href="#plumemo" class="headerlink" title="plumemo"></a>plumemo</h2><ul>
+<li>Github地址 ： <a target="_blank" rel="noopener" href="https://github.com/byteblogs168/plumemo">https://github.com/byteblogs168/plumemo</a>。</li>
+<li>Star: 0.3k</li>
+<li>简介：基于<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-boot/">SpringBoot</a>实现零配置让系统的配置更简单，使用了<a target="_blank" rel="noopener" href="https://mp.baomidou.com/">Mybatis-Plus</a>快速开发框架，在不是复杂的查询操作下，无需写sql就可以快速完成接口编写。 后台管理系统使用了vue中流行的<a target="_blank" rel="noopener" href="https://panjiachen.github.io/vue-element-admin-site/#/">ant</a>，另外前后交互使用了<a target="_blank" rel="noopener" href="https://jwt.io/">JWT</a>作为令牌，进行权限、登录校验。。</li>
+<li>技术 ：Spring boot +  <a target="_blank" rel="noopener" href="https://baomidou.com/">MyBatis-Plus</a> + JWT</li>
+<li>推荐等级：⭐⭐⭐⭐</li>
+<li>评价 ：界面简单美观，基于 Spring Boot 开发，适合用来学习，同时适合用来作为自己的博客。</li>
+</ul>
+<p><strong>plumemo博客后台效果：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-09/plumemo-qfdxz.top.png" alt="plumemo-qfdxz.top"></p>
+<p>以上就是我今天要推荐的所有博客了。花了比较长时间去搜索以及对比，希望能对JavaGuide的小可爱们的有帮助！ღ( ´･ᴗ･` )比心</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+        </span>
+    
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 582px;
+    }
+    .nav.fullscreen {
+        margin-left: -582px;
+    }
+    .nav-left {
+        width: 160px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 552px;
+        }
+        .nav.fullscreen {
+            margin-left: -552px;
+        }
+        .nav-left {
+            width: 160px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 552px;
+            margin-left: -552px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

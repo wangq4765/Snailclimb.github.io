@@ -987,17 +987,16 @@
 }
 .nav-right .title-list nav a:before,
 .nav-right .title-list #local-search-result a:before {
-  content: "\e901";
   position: absolute;
   top: 7px;
-  left: 12px;
+  left: 6px;
   z-index: 1;
   font-size: 18px;
   color: #309e85;
 }
 .nav-right .title-list nav a#top:before,
 .nav-right .title-list #local-search-result a#top:before {
-  content: "\f08d";
+  content: "\1F51D";
 }
 .nav-right .title-list nav a.hover:before,
 .nav-right .title-list #local-search-result a.hover:before {

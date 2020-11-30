@@ -587,7 +587,7 @@
   margin: 0;
   padding: 0;
   font-size: 17px;
-  border-top: 1px solid #fff;
+  border-top: 1px solid #82959e;
   list-style: none;
   overflow-y: auto;
 }
@@ -613,7 +613,7 @@
 .nav-left ul li {
   line-height: 40px;
   text-align: center;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #82959e;
   cursor: pointer;
 }
 .nav-left ul li>div {
@@ -622,12 +622,14 @@
   position: relative;
 }
 .nav-left ul li>div:hover {
-  color: #f7f7f7;
-  box-shadow: inset 6px 0 0 #fff;
+  color: #252a2d;
+  box-shadow: inset 6px 0 0 #82959e;
+  font-weight: bold;
 }
 .nav-left ul li>div.active {
   color: #020202;
-  box-shadow: inset 165px 0 0 #fff;
+  box-shadow: inset 165px 0 0 #82959e;
+  font-weight: bold;
 }
 .nav-left ul li>div>.fold {
   left: 4px;

@@ -9,7 +9,7 @@
 <meta name="description" content="最近想倒腾一下博客，看了很多现成的比较成熟的开源博客系统，自己也简单从下面几个维度总结对比了一下：  star数量 技术选型 社区生态  当然啦！好东西不能独享。下面简单分享一下我所做的笔记。 欢迎小伙伴们评论区补充完善。ღ( ´･ᴗ･&#96; )比心 halo Github地址 ：https:&#x2F;&#x2F;github.com&#x2F;halo-dev&#x2F;halo Star : 16.2k 简介 ：✍ 一个优秀的开源博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="听说你要搭建个人博客？Guide哥调研了100来个 Java 开源博客系统，发现这 5 个最好用！">
-<meta property="og:url" content="http://example.com/2020/11/29/github/java%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:url" content="https://javaguide.cn/2020/11/29/github/java%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="学习Java，就上JavaGuide">
 <meta property="og:description" content="最近想倒腾一下博客，看了很多现成的比较成熟的开源博客系统，自己也简单从下面几个维度总结对比了一下：  star数量 技术选型 社区生态  当然啦！好东西不能独享。下面简单分享一下我所做的笔记。 欢迎小伙伴们评论区补充完善。ღ( ´･ᴗ･&#96; )比心 halo Github地址 ：https:&#x2F;&#x2F;github.com&#x2F;halo-dev&#x2F;halo Star : 16.2k 简介 ：✍ 一个优秀的开源博客">
 <meta property="og:locale" content="en_US">
@@ -34,7 +34,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -347,6 +347,17 @@
         </span>
         
         
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
     </div>
     
     <div class="toc-ref">
@@ -381,8 +392,13 @@
 <h2 id="如何查看-Java-字节码"><a href="#如何查看-Java-字节码" class="headerlink" title="如何查看 Java 字节码?"></a>如何查看 Java 字节码?</h2><p>如果我们通过命令行来查看某个 class 的字节码文件的话，可以直接通过 <code>javap</code> 命令，不过这种方式太原始了，效率十分低，并且看起来不直观。</p>
 <p>下面介绍两种使用 IDEA 查看类对应字节码文件的方式（_<code>javap</code>这种方式就不提了_）。</p>
 <p>我们以这段代码作为案例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer i = <span class="keyword">null</span>;</span><br><span class="line">        Boolean flag = <span class="keyword">false</span>;</span><br><span class="line">        System.out.println(flag ? <span class="number">0</span> : i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        Integer i = null;
+        Boolean flag = false;
+        System.out.println(flag ? 0 : i);
+    &#125;
+&#125;</code></pre>
 <p>上面这段代码由于使用三目运算符不当导致诡异了 NPE 异常。为了搞清楚事情的原因，我们来看其对应的字节码。</p>
 <h3 id="使用-IDEA-自带功能"><a href="#使用-IDEA-自带功能" class="headerlink" title="使用 IDEA 自带功能"></a>使用 IDEA 自带功能</h3><p>我们点击 <code>View -&gt; Show Bytecode</code> 即可通过 IDEA 查看某个类对应的字节码文件。</p>
 <blockquote>
@@ -399,8 +415,9 @@
 </ul>
 </blockquote>
 <p>详细解释下就是：<code>flag ? 0 : i</code> 这行代码中，0 是基本数据类型 int，返回数据的时候 i 会被强制拆箱成 int 类型，由于 i 的值是 null，因此就抛出了 NPE 异常。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="keyword">null</span>;</span><br><span class="line">Boolean flag = <span class="keyword">false</span>;</span><br><span class="line">System.out.println(flag ? <span class="number">0</span> : i);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">Integer i = null;
+Boolean flag = false;
+System.out.println(flag ? 0 : i);</code></pre>
 <p>如果，我们把代码中 <code>flag</code> 变量的值修改为 true 的话，就不会存在 NPE 问题了，因为会直接返回 0，不会进行拆箱操作。</p>
 <h3 id="使用-IDEA-插件-jclasslib-推荐"><a href="#使用-IDEA-插件-jclasslib-推荐" class="headerlink" title="使用 IDEA 插件 jclasslib(推荐)"></a>使用 IDEA 插件 jclasslib(推荐)</h3><p>相比于 IDEA 自带的查看类字节的功能，我更推荐 <code>jclasslib</code> 这个插件，非常棒！</p>
 <p><strong>使用 <code>jclasslib</code> 不光可以直观地查看某个类对应的字节码文件，还可以查看类的基本信息、常量池、接口、属性、函数等信息。</strong></p>
@@ -416,11 +433,40 @@
 </article>
 
 
-<p>
-    <a  class="dashang" onclick="dashangToggle()">赏</a>
-</p>
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>jclasslib：一款快速查看Java字节码的神器!力荐！</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">979</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Guide哥">Guide哥</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-11-29, 22:27:28</p>
+    <p><span class="copy-title">最后更新:</span>2020-11-29, 22:38:41</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/11/29/idea/jclasslib/" title="jclasslib：一款快速查看Java字节码的神器!力荐！">https://javaguide.cn/2020/11/29/idea/jclasslib/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'c20d1ba392b599a988db',
+            clientSecret: '2127602c90397e92f887223d617ba84bd5291cf4',
+            repo: 'Snailclimb.github.io',
+            owner: 'Snailclimb',
+            admin: ['Snailclimb'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
@@ -434,10 +480,10 @@
     <div class="copyright">
         <p class="footer-entry"><span class="miit">
                 <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
-                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+                <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/recordQuery">鄂ICP备2020015769号</a>
         </span>
     
-    ©2016-2020 Yelog
+    ©2020 Guide哥
 </p>
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
@@ -448,24 +494,6 @@
 
     </div>
 </div>
-
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close"  onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>喜欢就点赞,疼爱就打赏</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
-    </div>
-</div>
-
 
 </body>
 <script src="/js/jquery.pjax.js?v=1.1.0" ></script>
@@ -480,14 +508,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -506,11 +526,6 @@
     }
 
     /*打赏页面隐藏与展示*/
-    
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
     
 
 </script>

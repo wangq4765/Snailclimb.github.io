@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>jclasslib：一款快速查看Java字节码的神器!力荐！ | 学习Java，就上JavaGuide</title>
-  <meta name="keywords" content=" IDEA , IDEA插件 ">
-  <meta name="description" content="jclasslib：一款快速查看Java字节码的神器!力荐！ | 学习Java，就上JavaGuide">
+  <title>阿里3面：CAP和BASE理论了解么？可以结合实际案例说下不？ | 学习Java，就上JavaGuide</title>
+  <meta name="keywords" content=" 大厂面试 , 分布式 ">
+  <meta name="description" content="阿里3面：CAP和BASE理论了解么？可以结合实际案例说下不？ | 学习Java，就上JavaGuide">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="!!!Note : 01，02 部分非干货，只是个人就一篇文章被 diss  的经历做的一个简单复盘。不想看Guide哥瞎BB的可以跳过。 这篇文章主要是为了聊一些关于校招&#x2F;社招的心里话，被 diss 与否其实是无所谓的。我不能让所有人都满意我的文章，但是大部分人觉得我的文章有价值我就开心了。  01前几天，我分享了一篇 《读者，双非本科、0实习、0比赛&#x2F;项目经历。3个月上岸百度（上）》 的文章">
 <meta property="og:type" content="article">
@@ -349,13 +349,11 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-idea/jclasslib" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-大厂面试真题/CAP和BASE理论" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">jclasslib：一款快速查看Java字节码的神器!力荐！</h1>
+        <h1 class="article-title">阿里3面：CAP和BASE理论了解么？可以结合实际案例说下不？</h1>
     
     <div class="article-meta">
-        
-        <span class="top"><a>置顶</a></span>
         
         
         
@@ -363,7 +361,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="IDEA">IDEA</a>
+            <a  data-rel="大厂面试真题">大厂面试真题</a>
             
         </span>
         
@@ -371,21 +369,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">IDEA</a>
+            <a class="color5">大厂面试</a>
             
-            <a class="color2">IDEA插件</a>
+            <a class="color4">分布式</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-11-29 22:38:41'>2020-11-29 22:27</time>
+            发布时间 : <time class="date" title='最后更新: 2020-11-30 15:14:02'>2020-11-30 15:12</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:979</span>
+        <span>字数:2.7k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -415,7 +413,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%95%E4%B8%BA-Java-%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">何为 Java 字节码?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9F%A5%E7%9C%8B-Java-%E5%AD%97%E8%8A%82%E7%A0%81%EF%BC%9F"><span class="toc-text">为什么要查看 Java 字节码？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-Java-%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">如何查看 Java 字节码?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-IDEA-%E8%87%AA%E5%B8%A6%E5%8A%9F%E8%83%BD"><span class="toc-text">使用 IDEA 自带功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-IDEA-%E6%8F%92%E4%BB%B6-jclasslib-%E6%8E%A8%E8%8D%90"><span class="toc-text">使用 IDEA 插件 jclasslib(推荐)</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CAP%E7%90%86%E8%AE%BA"><span class="toc-text">CAP理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E6%98%AF%E6%89%80%E8%B0%93%E7%9A%84%E2%80%9C3-%E9%80%89-2%E2%80%9D"><span class="toc-text">不是所谓的“3 选 2”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CAP-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="toc-text">CAP 实际应用案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB"><span class="toc-text">推荐阅读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BASE-%E7%90%86%E8%AE%BA"><span class="toc-text">BASE 理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BASE-%E7%90%86%E8%AE%BA%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-text">BASE 理论的核心思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BASE-%E7%90%86%E8%AE%BA%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-text">BASE 理论三要素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8F%AF%E7%94%A8"><span class="toc-text">1. 基本可用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AF%E7%8A%B6%E6%80%81"><span class="toc-text">2. 软状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-text">3. 最终一致性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-text">总结</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -431,54 +429,95 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>由于后面要分享的一篇文章中用到了这篇文章要推荐的一个插件，所以这里分享一下。非常实用！你会爱上它的！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/image-20201013084919965.png"></p>
-<p><strong>开始推荐 IDEA 字节码查看神器之前，先来回顾一下 Java 字节码是啥。</strong></p>
-<h2 id="何为-Java-字节码"><a href="#何为-Java-字节码" class="headerlink" title="何为 Java 字节码?"></a>何为 Java 字节码?</h2><p>Java 虚拟机（JVM）是运行 Java 字节码的虚拟机。JVM 有针对不同系统的特定实现（Windows，Linux，macOS），目的是使用相同的字节码，它们都会给出相同的结果。</p>
-<p><strong>什么是字节码?采用字节码的好处是什么?</strong></p>
-<blockquote>
-<p>在 Java 中，JVM 可以理解的代码就叫做<code>字节码</code>（即扩展名为 <code>.class</code> 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以 Java 程序运行时比较高效，而且，由于字节码并不针对一种特定的机器，因此，Java 程序无须重新编译便可在多种不同操作系统的计算机上运行。</p>
+        <blockquote>
+<p>本文节选自我开源的 JavaGuide ：<a target="_blank" rel="noopener" href="https://github.com/Snailclimb/JavaGuide">https://github.com/Snailclimb/JavaGuide</a>  （Github标星92k+!一份涵盖大部分 Java 程序员所需要掌握的核心知识。准备 Java 面试，首选 JavaGuide！）</p>
 </blockquote>
-<p><strong>Java 程序从源代码到运行一般有下面 3 步：</strong></p>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/Java%20%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png" alt="Java程序运行过程"></p>
-<h2 id="为什么要查看-Java-字节码？"><a href="#为什么要查看-Java-字节码？" class="headerlink" title="为什么要查看 Java 字节码？"></a>为什么要查看 Java 字节码？</h2><p>我们在平时学习的时候，经常需要查看某个 java 类的字节码文件。查看字节码文件更容易让我们搞懂 java 代码背后的原理比如搞懂 java 中的各种语法糖的本质。</p>
-<h2 id="如何查看-Java-字节码"><a href="#如何查看-Java-字节码" class="headerlink" title="如何查看 Java 字节码?"></a>如何查看 Java 字节码?</h2><p>如果我们通过命令行来查看某个 class 的字节码文件的话，可以直接通过 <code>javap</code> 命令，不过这种方式太原始了，效率十分低，并且看起来不直观。</p>
-<p>下面介绍两种使用 IDEA 查看类对应字节码文件的方式（_<code>javap</code>这种方式就不提了_）。</p>
-<p>我们以这段代码作为案例:</p>
-<pre><code class="java">public class Main &#123;
-    public static void main(String[] args) &#123;
-        Integer i = null;
-        Boolean flag = false;
-        System.out.println(flag ? 0 : i);
-    &#125;
-&#125;</code></pre>
-<p>上面这段代码由于使用三目运算符不当导致诡异了 NPE 异常。为了搞清楚事情的原因，我们来看其对应的字节码。</p>
-<h3 id="使用-IDEA-自带功能"><a href="#使用-IDEA-自带功能" class="headerlink" title="使用 IDEA 自带功能"></a>使用 IDEA 自带功能</h3><p>我们点击 <code>View -&gt; Show Bytecode</code> 即可通过 IDEA 查看某个类对应的字节码文件。</p>
-<blockquote>
-<p>需要注意的是：<strong>查看某个类对应的字节码文件之前确保它已经被编译过。</strong></p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/IDEA%E6%8F%92%E4%BB%B6/image-20201012143530226.png" alt="使用IDEA自带功能查看Java字节码"></p>
-<p>稍等几秒钟之后，你就可以直观到看到对应的类的字节码内容了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-10/image-20201012145127465.png"></p>
-<p>从字节码中可以看出，我圈出来的位置发生了 <strong>拆箱操作</strong> 。</p>
-<blockquote>
+<p>经历过技术面试的小伙伴想必对这个两个概念已经再熟悉不过了！</p>
+<p>Guide哥当年参加面试的时候，不夸张地说，只要问到分布式相关的内容，面试官几乎是必定会问这两个分布式相关的理论。</p>
+<p>并且，这两个理论也可以说是小伙伴们学习分布式相关内容的基础了！</p>
+<p>因此，小伙伴们非常非常有必要将这理论搞懂，并且能够用自己的理解给别人讲出来。</p>
+<p>这篇文章我会站在自己的角度对这两个概念进行解读！</p>
+<p><em>个人能力有限。如果文章有任何需要改善和完善的地方，欢迎在评论区指出，共同进步！——爱你们的Guide哥</em></p>
+<h2 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h2><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86">CAP 理论/定理</a>起源于 2000年，由加州大学伯克利分校的Eric Brewer教授在分布式计算原理研讨会（PODC）上提出，因此 CAP定理又被称作 <strong>布鲁尔定理（Brewer’s theorem）</strong></p>
+<p>2年后，麻省理工学院的Seth Gilbert和Nancy Lynch 发表了布鲁尔猜想的证明，CAP理论正式成为分布式领域的定理。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>CAP</strong> 也就是 <strong>Consistency（一致性）</strong>、<strong>Availability（可用性）</strong>、<strong>Partition Tolerance（分区容错性）</strong> 这三个单词首字母组合。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c37e7e66667a29233f7d30f10228d7a5.png"></p>
+<p>CAP 理论的提出者布鲁尔在提出 CAP 猜想的时候，并没有详细定义 <strong>Consistency</strong>、<strong>Availability</strong>、<strong>Partition Tolerance</strong> 三个单词的明确定义。</p>
+<p>因此，对于 CAP 的民间解读有很多，一般比较被大家推荐的是下面 👇 这种版本的解。</p>
+<p>在理论计算机科学中，CAP 定理（CAP theorem）指出对于一个分布式系统来说，当设计读写操作时，只能能同时满足以下三点中的两个：</p>
 <ul>
-<li><strong>装箱</strong>：将基本类型用它们对应的引用类型包装起来；</li>
-<li><strong>拆箱</strong>：将包装类型转换为基本数据类型；</li>
+<li><strong>一致性（Consistence）</strong> : 所有节点访问同一份最新的数据副本</li>
+<li><strong>可用性（Availability）</strong>: 非故障的节点在合理的时间内返回合理的响应（不是错误或者超时的响应）。</li>
+<li><strong>分区容错性（Partition tolerance）</strong> : 分布式系统出现网络分区的时候，仍然能够对外提供服务。</li>
 </ul>
+<p><strong>什么是网络分区？</strong></p>
+<blockquote>
+<p>分布式系统中，多个节点之前的网络本来是连通的，但是因为某些故障（比如部分节点网络出了问题）某些节点之间不连通了，整个网络就分成了几块区域，这就叫网络分区。</p>
 </blockquote>
-<p>详细解释下就是：<code>flag ? 0 : i</code> 这行代码中，0 是基本数据类型 int，返回数据的时候 i 会被强制拆箱成 int 类型，由于 i 的值是 null，因此就抛出了 NPE 异常。</p>
-<pre><code class="java">Integer i = null;
-Boolean flag = false;
-System.out.println(flag ? 0 : i);</code></pre>
-<p>如果，我们把代码中 <code>flag</code> 变量的值修改为 true 的话，就不会存在 NPE 问题了，因为会直接返回 0，不会进行拆箱操作。</p>
-<h3 id="使用-IDEA-插件-jclasslib-推荐"><a href="#使用-IDEA-插件-jclasslib-推荐" class="headerlink" title="使用 IDEA 插件 jclasslib(推荐)"></a>使用 IDEA 插件 jclasslib(推荐)</h3><p>相比于 IDEA 自带的查看类字节的功能，我更推荐 <code>jclasslib</code> 这个插件，非常棒！</p>
-<p><strong>使用 <code>jclasslib</code> 不光可以直观地查看某个类对应的字节码文件，还可以查看类的基本信息、常量池、接口、属性、函数等信息。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-10/image-20201012145646086.png"></p>
-<p>我们直接在 IDEA 的插件市场即可找到这个插件。我这里已经安装好了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-10-12/image-20201012145900911.png"></p>
-<p>安装完成之后，重启 IDEA。点击<code>View -&gt; Show Bytecode With jclasslib</code> 即可通过<code>jclasslib</code> 查看某个类对应的字节码文件。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/image-20201012150252106.png" alt="使用IDEA插件jclasslib查看类的字节码"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d4eb41cda30a7a7cc34c7c5c28102d45.png" alt="partition-tolerance"></p>
+<h3 id="不是所谓的“3-选-2”"><a href="#不是所谓的“3-选-2”" class="headerlink" title="不是所谓的“3 选 2”"></a>不是所谓的“3 选 2”</h3><p>大部分人解释这一定律时，常常简单的表述为：“一致性、可用性、分区容忍性三者你只能同时达到其中两个，不可能同时达到”。实际上这是一个非常具有误导性质的说法，而且在 CAP 理论诞生 12 年之后，CAP 之父也在 2012 年重写了之前的论文。</p>
+<blockquote>
+<p><strong>当发生网络分区的时候，如果我们要继续服务，那么强一致性和可用性只能 2 选 1。也就是说当网络分区之后 P 是前提，决定了 P 之后才有 C 和 A 的选择。也就是说分区容错性（Partition tolerance）我们是必须要实现的。</strong></p>
+<p>简而言之就是：CAP 理论中分区容错性 P 是一定要满足的，在此基础上，只能满足可用性 A 或者一致性 C。</p>
+</blockquote>
+<p>因此，<strong>分布式系统理论上不可能选择 CA 架构，只能选择 CP 或者 AP 架构。</strong></p>
+<p><strong>为啥无同时保证 CA 呢？</strong></p>
+<p>举个例子：若系统出现“分区”，系统中的某个节点在进行写操作。为了保证 C， 必须要禁止其他节点的读写操作，这就和 A 发生冲突了。如果为了保证 A，其他节点的读写操作正常的话，那就和 C 发生冲突了。</p>
+<p><strong>选择的关键在于当前的业务场景，没有定论，比如对于需要确保强一致性的场景如银行一般会选择保证 CP 。</strong></p>
+<h3 id="CAP-实际应用案例"><a href="#CAP-实际应用案例" class="headerlink" title="CAP 实际应用案例"></a>CAP 实际应用案例</h3><p>我这里以注册中心来探讨一下 CAP 的实际应用。考虑到很多小伙伴不知道注册中心是干嘛的，这里简单以 Dubbo 为例说一说。</p>
+<p>下图是 Dubbo 的架构图。<strong>注册中心 Registry 在其中扮演了什么角色呢？提供了什么服务呢？</strong></p>
+<p>注册中心负责服务地址的注册与查找，相当于目录服务，服务提供者和消费者只在启动时与注册中心交互，注册中心不转发请求，压力较小。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8cf010b8e0930b79424a1b3e97f9ecaf.png"></p>
+<p>常见的可以作为注册中心的组件有：ZooKeeper、Eureka、Nacos…。</p>
+<ol>
+<li><strong>ZooKeeper 保证的是 CP。</strong> 任何时刻对 ZooKeeper 的读请求都能得到一致性的结果，但是， ZooKeeper 不保证每次请求的可用性比如在 Leader 选举过程中或者半数以上的机器不可用的时候服务就是不可用的。</li>
+<li><strong>Eureka 保证的则是 AP。</strong> Eureka 在设计的时候就是优先保证 A （可用性）。在 Eureka 中不存在什么 Leader 节点，每个节点都是一样的、平等的。因此 Eureka 不会像 ZooKeeper 那样出现选举过程中或者半数以上的机器不可用的时候服务就是不可用的情况。 Eureka 保证即使大部分节点挂掉也不会影响正常提供服务，只要有一个节点是可用的就行了。只不过这个节点上的数据可能并不是最新的。</li>
+<li><strong>Nacos 不仅支持 CP 也支持 AP。</strong></li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在进行分布式系统设计和开发时，我们不应该仅仅局限在 CAP 问题上，还要关注系统的扩展性、可用性等等</p>
+<p>在系统发生“分区”的情况下，CAP 理论只能满足 CP 或者 AP。要注意的是，这里的前提是系统发生了“分区”</p>
+<p>如果系统没有发生“分区”的话，节点间的网络连接通信正常的话，也就不存在 P 了。这个时候，我们就可以同时保证 C 和 A 了。</p>
+<p>总结：<strong>如果系统发生“分区”，我们要考虑选择 CP 还是 AP。如果系统没有发生“分区”的话，我们要思考如何保证 CA 。</strong></p>
+<h3 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@ravindraprasad/cap-theorem-simplified-28499a67eab4">CAP 定理简化</a> （英文，有趣的案例）</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903936718012430">神一样的 CAP 理论被应用在何方</a> （中文，列举了很多实际的例子）</li>
+<li><a target="_blank" rel="noopener" href="https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html">请停止呼叫数据库 CP 或 AP </a> （英文，带给你不一样的思考）</li>
+</ol>
+<h2 id="BASE-理论"><a href="#BASE-理论" class="headerlink" title="BASE 理论"></a>BASE 理论</h2><p><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/1394127.1394128">BASE 理论</a>起源于 2008 年， 由eBay的架构师Dan Pritchett在ACM上发表。</p>
+<h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p><strong>BASE</strong> 是 <strong>Basically Available（基本可用）</strong> 、<strong>Soft-state（软状态）</strong> 和 <strong>Eventually Consistent（最终一致性）</strong> 三个短语的缩写。BASE 理论是对 CAP 中一致性 C 和可用性 A 权衡的结果，其来源于对大规模互联网系统分布式实践的总结，是基于 CAP 定理逐步演化而来的，它大大降低了我们对系统的要求。</p>
+<h3 id="BASE-理论的核心思想"><a href="#BASE-理论的核心思想" class="headerlink" title="BASE 理论的核心思想"></a>BASE 理论的核心思想</h3><p>即使无法做到强一致性，但每个应用都可以根据自身业务特点，采用适当的方式来使系统达到最终一致性。</p>
+<blockquote>
+<p>也就是牺牲数据的一致性来满足系统的高可用性，系统中一部分数据不可用或者不一致时，仍需要保持系统整体“主要可用”。</p>
+</blockquote>
+<p><strong>BASE 理论本质上是对 CAP 的延伸和补充，更具体地说，是对 CAP 中 AP 方案的一个补充。</strong></p>
+<p><strong>为什么这样说呢？</strong></p>
+<p>CAP 理论这节我们也说过了：</p>
+<blockquote>
+<p>如果系统没有发生“分区”的话，节点间的网络连接通信正常的话，也就不存在 P 了。这个时候，我们就可以同时保证 C 和 A 了。因此，<strong>如果系统发生“分区”，我们要考虑选择 CP 还是 AP。如果系统没有发生“分区”的话，我们要思考如何保证 CA 。</strong></p>
+</blockquote>
+<p>因此，AP 方案只是在系统发生分区的时候放弃一致性，而不是永远放弃一致性。在分区故障恢复后，系统应该达到最终一致性。这一点其实就是 BASE 理论延伸的地方。</p>
+<h3 id="BASE-理论三要素"><a href="#BASE-理论三要素" class="headerlink" title="BASE 理论三要素"></a>BASE 理论三要素</h3><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOC81LzI0LzE2MzkxNDgwNmQ5ZTE1YzY?x-oss-process=image/format,png" alt="BASE理论三要素"></p>
+<h4 id="1-基本可用"><a href="#1-基本可用" class="headerlink" title="1. 基本可用"></a>1. 基本可用</h4><p>基本可用是指分布式系统在出现不可预知故障的时候，允许损失部分可用性。但是，这绝不等价于系统不可用。</p>
+<p><strong>什么叫允许损失部分可用性呢？</strong></p>
+<ul>
+<li><strong>响应时间上的损失</strong>: 正常情况下，处理用户请求需要 0.5s 返回结果，但是由于系统出现故障，处理用户请求的时间变为 3 s。</li>
+<li><strong>系统功能上的损失</strong>：正常情况下，用户可以使用系统的全部功能，但是由于系统访问量突然剧增，系统的部分非核心功能无法使用。</li>
+</ul>
+<h4 id="2-软状态"><a href="#2-软状态" class="headerlink" title="2. 软状态"></a>2. 软状态</h4><p>软状态指允许系统中的数据存在中间状态（<strong>CAP 理论中的数据不一致</strong>），并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。</p>
+<h4 id="3-最终一致性"><a href="#3-最终一致性" class="headerlink" title="3. 最终一致性"></a>3. 最终一致性</h4><p>最终一致性强调的是系统中所有的数据副本，在经过一段时间的同步后，最终能够达到一个一致的状态。因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
+<blockquote>
+<p>分布式一致性的 3 种级别：</p>
+<ol>
+<li><p><strong>强一致性</strong> ：系统写入了什么，读出来的就是什么。</p>
+</li>
+<li><p><strong>弱一致性</strong> ：不一定可以读取到最新写入的值，也不保证多少时间之后读取到的数据是最新的，只是会尽量保证某个时刻达到数据一致的状态。</p>
+</li>
+<li><p><strong>最终一致性</strong> ：弱一致性的升级版。，系统会保证在一定时间内达到数据一致的状态，</p>
+</li>
+</ol>
+<p><strong>业界比较推崇是最终一致性级别，但是某些对数据一致要求十分严格的场景比如银行转账还是要保证强一致性。</strong></p>
+</blockquote>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p><strong>ACID 是数据库事务完整性的理论，CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。</strong></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以通过微信公众号“JavaGuide”与我联系。 </span>
@@ -488,12 +527,12 @@ System.out.println(flag ? 0 : i);</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>jclasslib：一款快速查看Java字节码的神器!力荐！</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">979</span></p>
+    <p><span class="copy-title">文章标题:</span>阿里3面：CAP和BASE理论了解么？可以结合实际案例说下不？</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">2.7k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Guide哥">Guide哥</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-11-29, 22:27:28</p>
-    <p><span class="copy-title">最后更新:</span>2020-11-29, 22:38:41</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/11/29/idea/jclasslib/" title="jclasslib：一款快速查看Java字节码的神器!力荐！">https://javaguide.cn/2020/11/29/idea/jclasslib/</a>
+    <p><span class="copy-title">发布时间:</span>2020-11-30, 15:12:14</p>
+    <p><span class="copy-title">最后更新:</span>2020-11-30, 15:14:02</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/11/30/%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/CAP%E5%92%8CBASE%E7%90%86%E8%AE%BA/" title="阿里3面：CAP和BASE理论了解么？可以结合实际案例说下不？">https://javaguide.cn/2020/11/30/%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/CAP%E5%92%8CBASE%E7%90%86%E8%AE%BA/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
     </p>

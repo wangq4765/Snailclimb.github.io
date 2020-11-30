@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>学习Java，就上JavaGuide</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="学习Java，就上JavaGuide">
+  <title>阿里2面：如何设计与实现短URL服务？ | 学习Java，就上JavaGuide</title>
+  <meta name="keywords" content=" 大厂面试 , 系统设计 ">
+  <meta name="description" content="阿里2面：如何设计与实现短URL服务？ | 学习Java，就上JavaGuide">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="!!!Note : 01，02 部分非干货，只是个人就一篇文章被 diss  的经历做的一个简单复盘。不想看Guide哥瞎BB的可以跳过。 这篇文章主要是为了聊一些关于校招&#x2F;社招的心里话，被 diss 与否其实是无所谓的。我不能让所有人都满意我的文章，但是大部分人觉得我的文章有价值我就开心了。  01前几天，我分享了一篇 《读者，双非本科、0实习、0比赛&#x2F;项目经历。3个月上岸百度（上）》 的文章">
 <meta property="og:type" content="article">
@@ -68,7 +68,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -347,12 +347,73 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-大厂面试真题/短网址" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E6%88%91"><span class="toc-text">联系我</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE"><span class="toc-text">开源项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%99%E7%A8%8B-%E9%9D%A2%E8%AF%95"><span class="toc-text">教程&#x2F;面试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AE%E5%AD%90"><span class="toc-text">轮子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li></ol>
+        <h1 class="article-title">阿里2面：如何设计与实现短URL服务？</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="大厂面试真题">大厂面试真题</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">大厂面试</a>
+            
+            <a class="color5">系统设计</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-11-30 15:18:25'>2020-11-30 15:16</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%ADURL%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">短URL的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%ADURL%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86"><span class="toc-text">短URL基础原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1"><span class="toc-text">服务设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8"><span class="toc-text">对应关系如何存储?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E9%95%BF%E7%9F%AD%E9%93%BE%E6%8E%A5%E4%B8%80%E4%B8%80%E5%AF%B9%E5%BA%94"><span class="toc-text">如何保证长短链接一一对应?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%ADURL%E7%9A%84%E5%AD%98%E5%82%A8"><span class="toc-text">短URL的存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%B9%B6%E5%8F%91"><span class="toc-text">高并发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%93%E5%AD%98"><span class="toc-text">缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E5%8F%91%E5%8F%B7"><span class="toc-text">批量发号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F"><span class="toc-text">分布式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -365,28 +426,162 @@
     }
 </style>
 </div>
-            <p> 👋 你好啊！我是Guide哥，Java后端开发工程师，懂一点前端知识，喜欢烹饪，自由的少年。一个三观比主角还正的技术人。</p>
-<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://space.bilibili.com/504390397">哔哩哔哩@Guide哥</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/javaguide">知乎@JavaGuide</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/71251673-1fef-416e-93d7-489a25a9eda5#">微信公众号@JavaGuide</a> </li>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>转载自：<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903873950269454">https://juejin.im/post/6844903873950269454</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想必大家也经常收到垃圾短信吧…短信中的链接一般都是短链接,类似于下图这样:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-5@main/11-26-12/16b8a1c733274b37.png"></p>
+<p><strong>为什么这里面的URL都是短的呢?有什么好处呢?怎么做到的呢?</strong></p>
+<h2 id="短URL的好处"><a href="#短URL的好处" class="headerlink" title="短URL的好处"></a>短URL的好处</h2><ol>
+<li><strong>短信和许多平台(微博)有字数限制</strong> ，太长的链接加进去都没有办法写正文了.</li>
+<li><strong>好看。</strong>比起一大堆不知所以的参数,短链接更加简洁友好.</li>
+<li><strong>方便做一些统计。</strong>你点了链接会有人记录然后分析的.</li>
+<li><strong>安全。</strong>不暴露访问参数.</li>
 </ol>
-<h2 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h2><h3 id="教程-面试"><a href="#教程-面试" class="headerlink" title="教程/面试"></a>教程/面试</h3><ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a> ：「Java学习+面试指南」一份涵盖大部分Java程序员所需要掌握的核心知识。准备 Java 面试，首选 JavaGuide！</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/springboot-guide">springboot-guide</a> ：Not only Spring Boot but also important knowledge of Spring（不只是SpringBoot还有Spring重要知识点）</li>
+<p>这就是为什么我们现在收到的垃圾短信大多数都是短URL的原因了.</p>
+<p>那么短URL是怎么做到的呢?</p>
+<h2 id="短URL基础原理"><a href="#短URL基础原理" class="headerlink" title="短URL基础原理"></a>短URL基础原理</h2><p>短URL从生成到使用分为以下几步.</p>
+<ol>
+<li>有一个服务,将要发送给你的长URL对应到一个短URL上.例如<code>www.baidu.com -&gt; www.t.cn/1</code></li>
+<li>把短URL拼接到短信等的内容上发送.</li>
+<li>用户点击短URL,浏览器用301/302进行重定向,访问到对应的长URL.</li>
+<li>展示对应的内容.</li>
 </ol>
-<h3 id="轮子"><a href="#轮子" class="headerlink" title="轮子"></a>轮子</h3><ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/guide-rpc-framework">guide-rpc-framework</a> ：A custom RPC framework implemented by Netty+Kyro+Zookeeper.（一款基于 Netty+Kyro+Zookeeper 实现的自定义 RPC 框架-附详细实现过程和相关教程）</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/jsoncat">jsoncat</a> ：仿 Spring Boot 但不同于 Spring Boot 的一个轻量级的 HTTP 框架</li>
-</ol>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/awesome-java">awesome-java</a> ：Collection of awesome Java project on Github(Github 上非常棒的 Java 开源项目集合).</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/programmer-advancement">programmer-advancement</a> ：程序员应该有的一些好习惯+面试必知事项！</li>
-</ol>
+<p>本文主要集中于第一步,即如何将一个长URL对应到短URL上.</p>
+<h2 id="服务设计"><a href="#服务设计" class="headerlink" title="服务设计"></a>服务设计</h2><p>如果你在往长短URL真实的对应关系上想,那么就走远了.</p>
+<p>最理想的情况是: 我们用一种算法,对每一个长URL,唯一的转换成短URL.还能保持反向转换的能力.</p>
+<p>但是这是不可能的,如果有这样的算法,世界上的所有压缩算法都可以原地去世了.</p>
+<p>正确的思路是建立一个发号器,每次有一个新的长URL进来,我们就增加一,并且将新的数值返回.第一个来的URL返回”<a target="_blank" rel="noopener" href="http://www.x.cn/0&quot;,%E7%AC%AC%E4%BA%8C%E4%B8%AA%E8%BF%94%E5%9B%9E&quot;www.x.cn/1&quot;">www.x.cn/0&quot;,第二个返回&quot;www.x.cn/1&quot;</a>.</p>
+<p>接下来以QA形式写几个小问题:</p>
+<h3 id="对应关系如何存储"><a href="#对应关系如何存储" class="headerlink" title="对应关系如何存储?"></a>对应关系如何存储?</h3><p>这个对应数据肯定是要落盘的,不能每次系统重启就重新排号,所以可以采用mysql等数据库来存储.而且如果数据量小且qps低,直接使用数据库的自增主键就可以实现.</p>
+<h3 id="如何保证长短链接一一对应"><a href="#如何保证长短链接一一对应" class="headerlink" title="如何保证长短链接一一对应?"></a>如何保证长短链接一一对应?</h3><p>按照上面的发号器策略,是不能保证长短链接的一一对应的,你连续用同一个URL请求两次,结果值都是不一样的.</p>
+<p>为了实现长短链接一一对应,我们需要付出很大的空间代价,尤其是为了快速响应,我们可以需要在内存中做一层缓存,这样子太浪费了.</p>
+<p>但是可以实现一些变种的,来实现部分的一一对应, 比如将最近/最热门的对应关系存储在K-V数据库中,这样子可以节省空间的同时,加快响应速度.</p>
+<h3 id="短URL的存储"><a href="#短URL的存储" class="headerlink" title="短URL的存储"></a>短URL的存储</h3><p>我们返回的短URL一般是将数字转换成32进制,这样子可以更加有效的缩短URL长度,那么32进制的数字对计算机来说只是字符串,怎么存储呢?直接存储字符串对等值查找好找,对范围查找等太不友好了.</p>
+<p>其实可以直接存储10进制的数字,这样不仅占用空间少,对查找的支持较好,同时还可以更加方便的转换到更多/更少的进制来进一步缩短URL.</p>
+<h3 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h3><p>如果直接存储在MySQL中,当并发请求增大,对数据库的压力太大,可能会造成瓶颈,这时候是可以有一些优化的.</p>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>上面<em>保证长短链接一一对应</em>中也提到过缓存,这里我们是为了加快程序处理速度.可以将热门的长链接(需要对长链接进来的次数进行计数),最近的长链接(可以使用redis保存最近一个小时的)等等进行一个缓存,保存在内存中或者类似redis的内存数据库中,如果请求的长URL命中了缓存,那么直接获取对应的短URL进行返回,不需要再进行生成操作.</p>
+<h4 id="批量发号"><a href="#批量发号" class="headerlink" title="批量发号"></a>批量发号</h4><p>每一次发号都需要访问一次MySQL来获取当前的最大号码,并且在获取之后更新最大号码,这个压力是比较大的.</p>
+<p>我们可以每次从数据库获取10000个号码,然后在内存中进行发放,当剩余的号码不足1000时,重新向MySQL请求下10000个号码.在上一批号码发放完了之后,批量进行写入.</p>
+<p>这样可以将对数据库持续的操作移到代码中进行,并且异步进行获取和写入操作,保证服务的持续高并发.</p>
+<h3 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h3><p>上面设计的系统是有单点的,那就是发号器是个单点,容易挂掉.</p>
+<p>可以采用分布式服务,分布式的话,如果每一个发号器进行发号之后都需要同步给其他发号器,那未必也太麻烦了.</p>
+<p>换一种思路,可以有两个发号器,一个发单号,一个发双号,发号之后不再是递增1,而是递增2.</p>
+<p>类比可得,我们可以用1000个服务,分别发放0-999尾号的数字,每次发号之后递增1000.这样做很简单,服务互相之间基本都不用通信,做好自己的事情就好了.</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>由于我懒得写JDBC代码,更懒得弄Mybatis,所以代码中使用到MySQL的地方都使用了Redis.</p>
+<pre><code class="java">package util;
 
-        </article>
-        
-        
+import redis.clients.jedis.Jedis;
+
+/**
+ * Created by pfliu on 2019/06/23.
+ */
+public class ShortURLUtil &#123;
+
+
+    private static final String SHORT_URL_KEY = &quot;SHORT_URL_KEY&quot;;
+    private static final String LOCALHOST = &quot;http://localhost:4444/&quot;;
+    private static final String SHORT_LONG_PREFIX = &quot;short_long_prefix_&quot;;
+    private static final String CACHE_KEY_PREFIX = &quot;cache_key_prefix_&quot;;
+    private static final int CACHE_SECONDS = 1 * 60 * 60;
+
+    private final String redisConfig;
+    private final Jedis jedis;
+
+    public ShortURLUtil(String redisConfig) &#123;
+        this.redisConfig = redisConfig;
+        this.jedis = new Jedis(this.redisConfig);
+    &#125;
+
+    public String getShortURL(String longURL, Decimal decimal) &#123;
+        // 查询缓存
+        String cache = jedis.get(CACHE_KEY_PREFIX + longURL);
+        if (cache != null) &#123;
+            return LOCALHOST + toOtherBaseString(Long.valueOf(cache), decimal.x);
+        &#125;
+
+        // 自增
+        long num = jedis.incr(SHORT_URL_KEY);
+        // 在数据库中保存短-长URL的映射关系,可以保存在MySQL中
+        jedis.set(SHORT_LONG_PREFIX + num, longURL);
+        // 写入缓存
+        jedis.setex(CACHE_KEY_PREFIX + longURL, CACHE_SECONDS, String.valueOf(num));
+        return LOCALHOST + toOtherBaseString(num, decimal.x);
+    &#125;
+
+    /**
+     * 在进制表示中的字符集合
+     */
+    final static char[] digits = &#123;&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;,
+            &#39;9&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;J&#39;, &#39;K&#39;, &#39;L&#39;,
+            &#39;M&#39;, &#39;N&#39;, &#39;O&#39;, &#39;P&#39;, &#39;Q&#39;, &#39;R&#39;, &#39;S&#39;, &#39;T&#39;, &#39;U&#39;, &#39;V&#39;, &#39;W&#39;, &#39;X&#39;, &#39;Y&#39;,
+            &#39;Z&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;, &#39;j&#39;, &#39;k&#39;, &#39;l&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;v&#39;, &#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;&#125;;
+
+    /**
+     * 由10进制的数字转换到其他进制
+     */
+    private String toOtherBaseString(long n, int base) &#123;
+        long num = 0;
+        if (n &lt; 0) &#123;
+            num = ((long) 2 * 0x7fffffff) + n + 2;
+        &#125; else &#123;
+            num = n;
+        &#125;
+        char[] buf = new char[32];
+        int charPos = 32;
+        while ((num / base) &gt; 0) &#123;
+            buf[--charPos] = digits[(int) (num % base)];
+            num /= base;
+        &#125;
+        buf[--charPos] = digits[(int) (num % base)];
+        return new String(buf, charPos, (32 - charPos));
+    &#125;
+
+    enum Decimal &#123;
+        D32(32),
+        D64(64);
+
+        int x;
+
+        Decimal(int x) &#123;
+            this.x = x;
+        &#125;
+    &#125;
+
+
+    public static void main(String[] args) &#123;
+
+        for (int i = 0; i &lt; 100; i++) &#123;
+            System.out.println(new ShortURLUtil(&quot;localhost&quot;).getShortURL(&quot;www.baidudu.com&quot;, Decimal.D32));
+            System.out.println(new ShortURLUtil(&quot;localhost&quot;).getShortURL(&quot;www.baidu.com&quot;, Decimal.D64));
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以通过微信公众号“JavaGuide”与我联系。 </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>阿里2面：如何设计与实现短URL服务？</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">2k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Guide哥">Guide哥</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-11-30, 15:16:36</p>
+    <p><span class="copy-title">最后更新:</span>2020-11-30, 15:18:25</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/11/30/%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/%E7%9F%AD%E7%BD%91%E5%9D%80/" title="阿里2面：如何设计与实现短URL服务？">https://javaguide.cn/2020/11/30/%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/%E7%9F%AD%E7%BD%91%E5%9D%80/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -408,6 +603,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry"><span class="miit">
@@ -420,11 +622,11 @@
 <!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
